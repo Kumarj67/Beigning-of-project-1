@@ -1,9 +1,27 @@
 // require express
 const express = require("express");
+// require cookie parser
+const cookieparser = require("cookie-parser");
+
 // call express
 const app = express();
+
+const db = require("./config/mongoose");
+
 // define port
 const port = 8000;
+// define ejs layouts
+const expressLayouts = require("express-ejs-layouts");
+app.use(expressLayouts);
+// extract style and script from sub pages into the layout
+app.set("layout extractStyles", true);
+app.set("layout extractScripts", true);
+app.use(express.urlencoded());
+app.use(cookieparser());
+
+// using assets file
+app.use(express.static("./assets"));
+
 // use  express router
 
 app.use("/", require("./routes/index"));
