@@ -7,7 +7,7 @@ const app = express();
 
 const path = require("path");
 
-const port = 1111;
+const port = 8000;
 
 // connecting the db
 const db = require("./config/mongoose");
@@ -25,7 +25,17 @@ const passportLocal = require("./config/passport-local-strategy");
 const MongoStore = require("connect-mongo")(session); // for this we use the command 'npm install connect-mongo@3.1.2'
 
 // here we are adding the SASS workbench as a middle-ware
-// const sassMiddleware = require('node-sass-middleware');
+const sassMiddleware = require("node-sass-middleware");
+
+app.use(
+  sassMiddleware({
+    src: "./assets/scss",
+    dest: "./assets/css",
+    debug: true,
+    outputStyle: "expanded",
+    prefix: "/css",
+  })
+);
 
 // using the urlEncoded middleware
 app.use(express.urlencoded());
