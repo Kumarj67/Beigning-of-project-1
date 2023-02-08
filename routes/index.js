@@ -1,12 +1,17 @@
-const express = require("express"); //it is at same instances it is created and require only at once
-const router = express.Router();
-console.log("router loaded");
-const homeController = require("../controllers/controller_home");
-router.get("/", homeController.home);
-router.use("/users", require("./users"));
-router.use("/contacts", require("./Contacts"));
+const express = require("express");
 
-// for any routes .access from here
-//router.get('/routerName',require()'./routerFile.js)
+const router = express.Router();
+
+// adding controller here.
+const homeController = require("../controllers/home_controller");
+
+console.log("routes added successfully!!");
+
+// adding controller for our page.
+router.get("/", homeController.home);
+router.use("/user", require("./user"));
+
+//for any further routes
+//router.use('./routerName', require('./routerFile'));
 
 module.exports = router;

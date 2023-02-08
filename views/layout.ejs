@@ -1,13 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title><%=title%></title>
-    <link rel="stylesheet" href="/css/layout.css" />
-    <%-style%>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/scss/layouts.scss" />
+
+    <%- style %>
   </head>
   <body>
-    <%- include('_header'); -%> <%- body %> <%- include('_footer'); -%>
-    <%-script%>
+    <!-- including header and footer layouts -->
+    <%- include('_header'); %> <%- body %> <%- include('_footer'); %>
   </body>
 </html>
-
-<!-- while creating file in views folder name layout file as "layout.ejs " only not layouts our Layout it will not work -->

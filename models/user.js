@@ -1,12 +1,15 @@
+// here we create the schema for the user.
 const mongoose = require("mongoose");
+
+//creating user fields collections
 const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
       required: true,
-      unique: true,
+      unique: true, // here unique gives the unique identity to the email.
     },
-    Password: {
+    password: {
       type: String,
       required: true,
     },
@@ -16,9 +19,12 @@ const userSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true,
+    timestamps: true, // here timestamps gives us the property or instance in tableof CreatedAt and UpdatedAt.
   }
 );
-const User = mongoose.model("User", userSchema);
 
+//creating an Schema which is visible in the db. telling moongose it is a collection.
+const User = mongoose.model("user", userSchema);
+
+// exporting the modules
 module.exports = User;

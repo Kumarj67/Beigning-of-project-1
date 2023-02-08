@@ -1,13 +1,22 @@
-// Require a library
 const mongoose = require("mongoose");
-// connect to the database
-mongoose.connect("mongodb://127.0.0.1:27017/contact_list_db");
-// acquire the connection to check is it successfull
+
+mongoose.set("strictQuery", true);
+
+mongoose.connect("mongodb://127.0.0.1:27017/codiall_development");
+
+// connecting mongoose with the db
 const db = mongoose.connection;
-// error
-db.on("error", console.error.bind(console, "connection error:"));
-// up and running then print message
+
+//checking if there is any error while connecting
+db.on(
+  "error",
+  console.error.bind(console, "error on connecting to the Database MongoDB")
+);
+
+//if there is no error while connecting.
 db.once("open", function () {
-  console.log("successfully connected with the database");
+  console.log("Connected to the databse successfully :: MongoDB");
 });
+
+// here we exports the module.
 module.exports = db;

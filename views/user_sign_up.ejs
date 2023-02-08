@@ -1,21 +1,35 @@
-<h1>Sign up</h1>
+<h1>here is the Sign Up Page. Please enter the details</h1>
 
-<form action="/users/create" method="post">
-  <input type="text" name="name" id="" placeholder="Your Name" required />
-  <input type="email" name="email" id="" placeholder="Your Email" required />
+<!-- here we create the Create action which help us to get the data, create work as a controller. -->
+<form action="/user/create" method="post">
   <input
-    type="password"
-    name="Password"
-    id=""
-    placeholder="Password"
+    type="text"
+    name="name"
+    id=" "
+    placeholder="Please enter the name"
+    required
+  />
+  <input
+    type="email"
+    name="email"
+    id=" "
+    placeholder="Please enter the Email"
     required
   />
   <input
     type="password"
-    name="Confirm_Password"
-    id=""
-    placeholder="Confirm Password"
+    name="password"
+    id=" "
+    placeholder="Please enter your password"
     required
   />
-  <input type="submit" value="Sign up" />
+  <input
+    type="password"
+    name="confirm_password"
+    id=" "
+    placeholder="confirm your password"
+    required
+  />
+
+  <input type="submit" value="Sign-Up" />
 </form>
