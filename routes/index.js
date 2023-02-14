@@ -12,6 +12,8 @@ router.get("/", homeController.home);
 router.use("/user", require("./user"));
 // adding controller for post
 router.use("/posts", require("./posts"));
+// adding comments controller
+router.use("/comments", require("./comments"));
 
 //for any further routes
 //router.use('./routerName', require('./routerFile'));
