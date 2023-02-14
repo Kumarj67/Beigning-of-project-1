@@ -1,7 +1,7 @@
 <h1>this is the user's <%= title %></h1>
 <section id="feed-post">
   <h4>Posts</h4>
-  <form action="" id="new-post-form" method="post">
+  <form action="/posts/create" id="new-post-form" method="post">
     <textarea
       name="content"
       id=""
@@ -15,4 +15,19 @@
     "
     />
   </form>
+  <div id="post-list-container">
+    <ul>
+      <% for(post of posts) { %>
+
+      <li>
+        <P
+          ><%=post.content %>
+          <br />
+          <small><%=post.user.name %></small>
+        </P>
+      </li>
+
+      <%}%>
+    </ul>
+  </div>
 </section>

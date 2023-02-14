@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema(
 );
 
 //creating an Schema which is visible in the db. telling moongose it is a collection.
-const User = mongoose.model("user", userSchema);
+const User = mongoose.model("User", userSchema);
 
 // exporting the modules
 module.exports = User;
