@@ -11,8 +11,9 @@ module.exports.create = function (req, res) {
           user: req.user._id,
         },
         function (err, comment) {
-          // handle error
-          console.log("error in pushing the comments", err);
+          if (err) {
+            console.log("error in pushing the comments", err);
+          }
           post.comments.push(comment);
           post.save();
           res.redirect("/");
