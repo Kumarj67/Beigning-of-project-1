@@ -22,3 +22,24 @@ module.exports.create = function (req, res) {
     }
   });
 };
+
+module.exports.destroy = function (req, res) {
+  console.log(req.params.id);
+  Comment.findById(req.params.id, function (err, comment) {
+    console.log(Comment);
+    if (comment.user == req.user.id) {
+      let postId = comment.post;
+      comment.remove();
+      Post.findByIdAndUpdate(
+        postId,
+        { $pull: { comments: req.params.id } },
+        function (err, post) {
+          console.log("let");
+          return res.redirect("back");
+        }
+      );
+    } else {
+      return res.redirect("back");
+    }
+  });
+};

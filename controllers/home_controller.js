@@ -1,4 +1,5 @@
 const Post = require("../models/post");
+const User = require("../models/user");
 module.exports.home = function (req, res) {
   // checking the cookies value using the req because we are requesting the cookie to the browser.
   // console.log(req.cookies);  // cookies comes as request but going as a response ,to the browser
