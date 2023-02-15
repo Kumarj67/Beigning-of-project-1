@@ -25,9 +25,12 @@ module.exports.home = function (req, res) {
     })
     .exec(function (err, posts) {
       console.log(posts);
-      return res.render("home", {
-        title: "My Home Page",
-        posts: posts,
+      User.find({}, function (err, users) {
+        return res.render("home", {
+          title: "My Home Page",
+          posts: posts,
+          all_users: users,
+        });
       });
     });
 };

@@ -10,10 +10,16 @@ const profile_controller = require("../controllers/user_controller");
 console.log("user controller add successfully!!!!");
 
 router.get(
-  "/profile",
+  "/profile/:id",
   passport.checkAuthentication,
   profile_controller.profile
 ); //checking if thee user sign in or not
+
+router.post(
+  "/update/:id",
+  passport.checkAuthentication,
+  profile_controller.update
+);
 
 // connecting the user Sig In and Sign up routes to the conttroller.
 router.get("/sign-in", profile_controller.signIn);
