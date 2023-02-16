@@ -27,6 +27,11 @@ const MongoStore = require("connect-mongo")(session); // for this we use the com
 // here we are adding the SASS workbench as a middle-ware
 const sassMiddleware = require("node-sass-middleware");
 
+// here we are adding the Flash middleware
+const flash = require("connect-flash");
+
+const customMware = require("./config/middleware");
+
 app.use(
   sassMiddleware({
     src: "./assets/scss",
@@ -91,6 +96,9 @@ app.use(passport.session());
 
 // checking wether the sessioin cookies is present or not
 app.use(passport.setAuthenticatedUser);
+
+app.use(flash());
+app.use(customMware.setFlash);
 
 // use express router
 app.use("/", require("./routes"));
